@@ -1,0 +1,52 @@
+/* Styling for the container */
+.ads-frontend-form-submission {
+    /* max-width: 500px; */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styling for labels */
+.ads-frontend-form-submission label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Styling for text inputs and textareas */
+.ads-frontend-form-submission input[type="text"],
+.ads-frontend-form-submission input[type="email"],
+.ads-frontend-form-submission textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Styling for the submit button */
+.ads-frontend-form-submission input[type="submit"] {
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Hover effect for the submit button */
+.ads-frontend-form-submission input[type="submit"]:hover {
+    background-color: #005bbf;
+}
+
+/* Styling for the required field indicator */
+.ads-frontend-form-submission input[required],
+.ads-frontend-form-submission textarea[required]::before {
+    content: '*';
+    color: red;
+    margin-right: 5px;
+}
