@@ -1,5 +1,5 @@
 <div class="ads-frontend-form-submission">
-    <form action="" method="post">
+    <form action="<?php echo admin_url('admin-ajax.php'); ?>" method="post" id="ads-frontend-form-submission">
         <label for="amount">Amount:</label>
         <input type="text" name="amount" id="amount" required>
 
@@ -23,6 +23,9 @@
 
         <label for="phone">Phone:</label>
         <input type="text" name="phone" id="phone" required>
+        
+        <input type="hidden" name="action" value="handle_frontend_form_submission">
+        <?php wp_nonce_field('frontend-form-submission-nonce', 'nonce'); ?>
 
         <input type="submit" value="Submit">
     </form>

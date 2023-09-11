@@ -43,8 +43,8 @@ class FrontendFormSubmissionPlugin {
     private static $instance;
 
     private function __construct() {
-        add_action( 'plugins_loaded', array( $this, 'plugin_init' ) );
-        register_activation_hook( __FILE__, array( $this, 'activate' ) );
+        add_action( 'plugins_loaded', [ $this, 'plugin_init' ] );
+        register_activation_hook( __FILE__, [ $this, 'activate' ] );
         $this->define_constants();
     }
 
@@ -64,6 +64,16 @@ class FrontendFormSubmissionPlugin {
         load_plugin_textdomain( 'frontend-form-submission', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
         new \ADS\Frontend();
         new \ADS\Assets();
+        
+        if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+            new \ADS\Ajax();
+        }
+        
+        if( is_admin() ) {
+            new \ADS\Admin();
+        }else{
+            
+        }
     }
 
     public function define_constants(){

@@ -1,8 +1,8 @@
 <?php 
 namespace ADS;
-
+use ADS\Admin\Invoice_List_Table;
 class Admin{
     public function __construct(){
-        // echo plugin_dir_path( __FILE__ );
-    }
+        new \ADS\Admin\Menu();
+    }   
 }

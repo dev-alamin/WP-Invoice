@@ -2,6 +2,7 @@
 namespace ADS\Frontend;
 
 class Shortcode{
+
     public function __construct() {
         add_shortcode( 'ads_frontend_form', [ $this, 'frontend_form' ] );
     }

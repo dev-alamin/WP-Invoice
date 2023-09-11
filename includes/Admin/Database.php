@@ -8,7 +8,7 @@ class Database{
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        $sql = "CREATE TABLE $table_name (
+        $sql = "CREATE TABLE IF NOT EXISTS $table_name (
             id BIGINT(20) NOT NULL AUTO_INCREMENT,
             amount INT(10) NOT NULL,
             buyer VARCHAR(255) NOT NULL,
