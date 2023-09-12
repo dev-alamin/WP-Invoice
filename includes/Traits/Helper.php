@@ -1,7 +1,19 @@
-<?php 
+<?php
+/**
+ * Trait Helper
+ *
+ * A trait containing helper methods for various tasks.
+ *
+ * @package ADS\Traits
+ */
 namespace ADS\Traits;
 
 trait Helper {
+    /**
+     * Get the user's IP address.
+     *
+     * @return string The user's IP address.
+     */
     public function get_user_ip() {
         if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -31,6 +43,13 @@ trait Helper {
         return $results;
     }
 
+    /**
+     * Get an individual invoice by ID.
+     *
+     * @param int $id The ID of the invoice to retrieve.
+     *
+     * @return object|false The invoice object on success, false on failure.
+     */
     public function get_invoice( $id ) {
         global $wpdb;
     
@@ -41,4 +60,25 @@ trait Helper {
         return $address;
     }
 
+    /**
+     * Insert a new invoice into the database.
+     *
+     * @param array $data An associative array containing invoice data.
+     *
+     * @return int|false The ID of the inserted invoice on success, false on failure.
+     */
+    public function insert_invoice( array $data ) {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'ads_frontend_form_submission';
+    
+        $format = array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');
+    
+        $wpdb->insert($table_name, $data, $format);
+
+        if ($wpdb->insert_id) {
+            return $wpdb->insert_id;
+        } else {
+            return new \WP_Error( 'failed-to-insert', __( 'Failed to inster invoice', 'frontend-form-submission' ) );
+        }
+    }
 }

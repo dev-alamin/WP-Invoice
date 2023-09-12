@@ -43,7 +43,7 @@ class Invoice_List_Table extends \WP_List_Table {
         // Define your data source and columns here
         $data = $this->get_invoice(); // Implement this method to fetch data
     
-        $per_page = 2; // Adjust this to your desired items per page
+        $per_page = 20; // Adjust this to your desired items per page
         
         // Filter criteria from user input
         $filter_buyer = isset( $_POST['filter_by_date'] ) ? sanitize_text_field( $_POST['filter_by_date'] ) : '';

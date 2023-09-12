@@ -20,7 +20,7 @@ class Database{
             city VARCHAR(20) NOT NULL,
             phone VARCHAR(20) NOT NULL,
             hash_key VARCHAR(255),
-            entry_at DATE,
+            entry_at DATETIME,
             entry_by INT(10) NOT NULL,
             PRIMARY KEY (id)
         ) $charset_collate;";
