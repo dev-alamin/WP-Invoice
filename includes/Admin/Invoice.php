@@ -74,7 +74,7 @@ class Invoice{
             wp_die( 'Are you cheating?' );
         }
 
-        if( ! current_user_can( 'manage_options' ) ) {
+        if( ! current_user_can( 'edit_others_posts' ) ) {
             wp_die( 'Sorry, you are not allowed' );
         }
 
@@ -186,7 +186,7 @@ class Invoice{
             wp_die( 'Are you cheating?' ); // Protect SCRF
         }
 
-        if ( ! current_user_can( 'manage_options' ) ) {
+        if ( ! current_user_can( 'edit_others_posts' ) ) {
             wp_die( 'Sorry you are not allowed!' );
         }
 
