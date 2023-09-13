@@ -1,5 +1,12 @@
 <div class="wrap">
-    <h2>Edit Invoice</h2>
+    <h2><?php _e( 'Edit Invoice', 'frontend-form-submission' ); ?></h2>
+
+    <?php if( isset( $_GET['edited'] ) && $_GET['edited'] == true ): ?>
+        <div class="notice notice-success">
+            <p><?php _e( 'Invoice has been updated', 'frontend-form-submission' ); ?></p>
+        </div>
+    <?php endif; ?>
+
     <form method="post" action="">
         <table class="form-table">
             <tbody>
@@ -71,6 +78,6 @@
         </table>
 
         <?php wp_nonce_field('invoice-nonce'); ?>
-        <?php submit_button(__( 'Update Invoice', 'frontend-form-submission', 'primary', 'add_invoice' ) ); ?>
+        <?php submit_button(__( 'Update Invoice', 'frontend-form-submission' ), 'primary', 'add_invoice' ); ?>
     </form>
 </div>

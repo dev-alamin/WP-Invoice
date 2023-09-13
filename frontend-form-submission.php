@@ -70,7 +70,7 @@ class FrontendFormSubmissionPlugin {
         }
         
         if( is_admin() ) {
-            new \ADS\Admin();
+            new \ADS\Admin( new \ADS\Admin\Invoice());
         }else{
             
         }

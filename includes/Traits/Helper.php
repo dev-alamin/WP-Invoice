@@ -67,18 +67,60 @@ trait Helper {
      *
      * @return int|false The ID of the inserted invoice on success, false on failure.
      */
-    public function insert_invoice( array $data ) {
+    public function insert_invoice( $args = [] ) {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'ads_frontend_form_submission';
-    
-        $format = array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');
-    
-        $wpdb->insert($table_name, $data, $format);
 
-        if ($wpdb->insert_id) {
-            return $wpdb->insert_id;
-        } else {
-            return new \WP_Error( 'failed-to-insert', __( 'Failed to inster invoice', 'frontend-form-submission' ) );
+        $default = array(
+            'amount'      => '',
+            'buyer'       => '',
+            'receipt_id'  => '',
+            'items'       => '',
+            'buyer_email' => '',
+            'note'        => '',
+            'city'        => '',
+            'phone'       => '',
+            'entry_at'    => current_time( 'mysql', true ),
+            'entry_by'    => get_current_user_id(),
+        );
+
+        $data = wp_parse_args( $args, $default );
+
+        $table = $wpdb->prefix . 'ads_frontend_form_submission';
+        
+        $format = array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');
+        
+        if( isset( $data['id'] ) ) {
+            $id = $data['id'];
+            unset( $data['id'] );
+
+            $updated = $wpdb->update( $table, $data, [ 'id' => $id ], $format );
+
+            if( $updated ) {
+                return $updated;
+            }else{
+                return new \WP_Error( 'failed-to-update', __( 'Failed to update invoice', 'frontend-form-submission' ));
+            }
+
+        }else{
+            $wpdb->insert($table, $data, $format);
+
+            if ($wpdb->insert_id) {
+                return $wpdb->insert_id;
+            } else {
+                return new \WP_Error( 'failed-to-insert', __( 'Failed to inster invoice', 'frontend-form-submission' ) );
+            }
         }
     }
+
+    public function delete_invoice( $invoice_id ) {
+        global $wpdb;
+        $table = $wpdb->prefix . 'ads_frontend_form_submission';
+    
+        return $wpdb->delete(
+            $table,
+            [ 'id' => $invoice_id ],
+            [ '%d' ]
+        );
+    }
+    
 }

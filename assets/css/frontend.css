@@ -50,3 +50,14 @@
     color: red;
     margin-right: 5px;
 }
+
+#error-container p{
+    color: red;
+    font-size: 22px;
+}
+
+#thankYou {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: green;
+}
