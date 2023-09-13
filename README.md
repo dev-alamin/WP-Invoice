@@ -30,7 +30,7 @@ The WordPress Invoice Plugin simplifies the process of submitting and managing i
 
 ## Demo
 
-To see the WordPress Invoice Plugin in action, you can check out our [live demo](link-to-demo).
+To see the WordPress Invoice Plugin in action, you can check out our [live demo](https://awesomedigitalsolution.com/wp-portfolio-project/frontend-form-submission/).
 
 ## Getting Started
 
@@ -51,7 +51,7 @@ Follow these steps to set up the WordPress Invoice Plugin on your WordPress webs
 
 ## Usage
 
-1. After activating the plugin, create a new page or post where you want to add the frontend invoice submission form. Use the shortcode `[invoice_submission_form]` to embed the form.
+1. After activating the plugin, create a new page or post where you want to add the frontend invoice submission form. Use the shortcode `[ads_frontend_form]` and to see insights as a minimum role of editor use this shortcode `[ads_display_invoices]` to embed the form.
 
 2. Users can now visit the page with the form and submit their invoices. The submitted invoices will be stored in the WordPress database.
 
@@ -83,7 +83,7 @@ The WordPress Invoice Plugin relies on several open-source libraries and resourc
 
 ## Contact
 
-If you have questions, feedback, or need assistance, feel free to contact our support team at [support@email.com].
+If you have questions, feedback, or need assistance, feel free to contact our support team at [hmalaminmb4@email.com].
 
 
 We hope the WordPress Invoice Plugin simplifies invoice management on your WordPress website. If you encounter any issues or have suggestions for improvements, please let us know.

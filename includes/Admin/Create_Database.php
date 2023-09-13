@@ -1,7 +1,19 @@
 <?php 
 namespace ADS\Admin;
 
-class Database{
+/**
+ * Class Create_Database
+ *
+ * This class handles the creation of the database table used for storing frontend form submission data.
+ *
+ * @package ADS\Admin
+ */
+class Create_Database {
+    /**
+     * Create the database table for frontend form submissions.
+     *
+     * This method creates the required database table if it doesn't already exist, using WordPress's database utility.
+     */
     public function create_database() {
         global $wpdb;
         $table_name = $wpdb->prefix . 'ads_frontend_form_submission';

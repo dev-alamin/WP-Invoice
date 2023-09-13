@@ -41,7 +41,7 @@ class Menu{
         add_menu_page(
             __( 'WP Invoice', 'frontend-form-submission' ), // Page title
             __( 'WP Invoice', 'frontend-form-submission' ), // Menu title
-            'manage_options', // Capability required to access the menu page
+            'edit_others_posts', // Capability required to access the menu page
             'wp-invoice', // Menu slug (unique identifier)
             [ $this->invoice, 'plugin_page' ], // Callback function to display page content
             'dashicons-chart-area' // Icon URL or Dashicon class for the menu icon
