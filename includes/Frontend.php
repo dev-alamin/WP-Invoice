@@ -1,5 +1,6 @@
 <?php 
 namespace ADS;
+use ADS\Admin\Widget;
 
 /**
  * The main class for handling frontend functionality.
@@ -23,5 +24,11 @@ class Frontend {
 
         // Initialize the Form Submission Handling component
         new \ADS\Frontend\Handle_Form_Submission();
+
+        add_action('widgets_init', [ $this, 'widget' ] );
+    }
+
+    public function widget() {
+        register_widget(Widget::class);
     }
 }

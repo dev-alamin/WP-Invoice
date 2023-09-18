@@ -122,5 +122,26 @@ trait Helper {
             [ '%d' ]
         );
     }
-    
+
+    /**
+     * Generates and displays the frontend form HTML.
+     *
+     * This method is responsible for rendering and displaying the frontend form
+     * on the website. It uses a template file located at a specified path to
+     * generate the form's HTML content and then outputs it to the web page.
+     *
+     * @return void
+     */
+    public function generate_frontend_form() {
+        ob_start();
+        $form = __DIR__ . '/../../templates/html-form.php';
+
+        if ( file_exists( $form ) ) {
+            include $form;
+        } else {
+            echo _e( 'Target file does not exist', 'frontend-form-submission' );
+        }
+
+        ob_end_flush();
+    }
 }

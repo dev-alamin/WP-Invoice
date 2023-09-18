@@ -28,16 +28,7 @@ class Shortcode {
      * @return string The HTML content of the frontend form.
      */
     public function frontend_form() {
-        ob_start();
-        $form = __DIR__ . '/../../templates/html-form.php';
-
-        if ( file_exists( $form ) ) {
-            include $form;
-        } else {
-            echo _e( 'Target file does not exist', 'frontend-form-submission' );
-        }
-
-        ob_end_flush();
+        $this->generate_frontend_form();
     }
 
     public function display_invoices_shortcode() {

@@ -2,7 +2,6 @@
 namespace ADS;
 
 use ADS\Admin\Invoice;
-
 /**
  * The main class responsible for managing the plugin's admin functionality.
  *
